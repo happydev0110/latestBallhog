@@ -31,7 +31,8 @@ function App() {
       </div>
       <div className='container'>
         {/* <Dashboard /> */}
-        {
+        <Event /> 
+        {/* {
           getAccess() ?
             <Event /> :
             <div className='my-3'>
@@ -57,7 +58,7 @@ function App() {
                 </div>
               </div>
             </div>
-        }
+        } */}
       </div>
     </>
   );
