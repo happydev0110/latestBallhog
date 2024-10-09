@@ -204,7 +204,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
             status = true;
         } else {
-            if (!currentPlayItem.text.includes('blockeddd')) {
+            if (!currentPlayItem.text.includes('blocked')) {
                 status = true;
             }
         }
