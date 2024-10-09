@@ -494,7 +494,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
 
         // NFL DS Description
         case 'NFL-DS1':
-            description = 'Kickoojuhhtgfrsckkhoo1';
+            description = 'Kickooffffff';
             break;
         case 'NFL-DS1-1':
             description = 'Fumble Recovery';
