@@ -210,6 +210,9 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
         case 'NHL-DS2':
             description = playItem.text + ' Ends Turn'
             break;
+        case 'NHL-DS2-1':
+            description = playItem.text + ' Under 30 Seconds'
+            break;
         case 'NHL-DS3':
             if (playItem.participants) {
                 description = 'Shot by ' + playItem.participants[0].athlete.shortName
