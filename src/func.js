@@ -223,6 +223,13 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
                 description = 'Shot by '
             }
             break;
+        case 'NHL-DS3-2':
+            if (playItem.participants) {
+                description = 'Shot by ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Shot by '
+            }
+            break;
         case 'NHL-DS5':
             if (playItem.participants) {
                 description = 'Penalty. ' + playItem.participants[0].athlete.shortName
