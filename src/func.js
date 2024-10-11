@@ -203,6 +203,10 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             description = playItem.participants
             [0].athlete.shortName + ' wins faceoff'
             break;
+        case 'NHL-DS1-23':
+            description = playItem.participants
+            [0].athlete.shortName + ' wins faceoff'
+            break;
         case 'NHL-DS2':
             description = playItem.text + ' Ends Turn'
             break;
