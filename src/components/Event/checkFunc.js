@@ -156,7 +156,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
 
     // NHL-DS2-1
     if (dataTypeItem.no === 'NHL-DS2-1') {
-        // PREV_NHL_DS2-1
+        // PREV_NHL_DS2
         if (currentPlayItem === undefined || currentPlayItem.text === undefined || currentPlayItem.type === undefined || PREV_NHL_DS2 === undefined || PREV_NHL_DS2.type === undefined || currentPlayItem.wallclock === undefined || PREV_NHL_DS2.wallclock === undefined) {
             status = true;
         } else {
