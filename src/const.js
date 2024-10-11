@@ -1434,14 +1434,6 @@ export const NHL_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet1-23
-        no: 'NHL-DS1-23',
-        teamId: true,
-        typeId: 502,
-        scoreValue: -1,
-        Increase: 1,
-        rotation: false
-    },
     {//DataSet2
         no: 'NHL-DS2',
         teamId: -1,
