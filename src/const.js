@@ -3273,7 +3273,7 @@ export const NCAAFB_DS = [
     {//DS13
         no: 'NCAAFB-DS13',
         logo: 2,
-        teamId: false,
+        teamId: true,
         typeId: 7,
         scoreValue: -1,
         Increase: 1,
