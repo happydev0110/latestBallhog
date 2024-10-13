@@ -3272,7 +3272,7 @@ export const NCAAFB_DS = [
     },
     {//DS13
         no: 'NCAAFB-DS13',
-        logo: 1,
+        logo: 2,
         teamId: true,
         typeId: 7,
         scoreValue: -1,
@@ -3282,7 +3282,7 @@ export const NCAAFB_DS = [
     {//DS13-1
         no: 'NCAAFB-DS13-1',
         matchList: [5, 24, 9],
-        logo: 1,
+        logo: 2,
         teamId: true,
         typeId: false,
         scoreValue: -1,
@@ -3292,7 +3292,7 @@ export const NCAAFB_DS = [
     {//DS13-1-1
         no: 'NCAAFB-DS13-1-1',
         matchList: [5, 24, 9],
-        logo: 1,
+        logo: 2,
         teamId: true,
         typeId: false,
         scoreValue: -1,
@@ -3310,7 +3310,7 @@ export const NCAAFB_DS = [
     },
     {//DS14-1
         no: 'NCAAFB-DS14-1',
-        logo: 1,
+        logo: 2,
         teamId: true,
         typeId: 52,
         scoreValue: -1,
@@ -3321,7 +3321,7 @@ export const NCAAFB_DS = [
         no: 'NCAAFB-DS14-2',
         matchList: [52, 34],
         teamId: true,
-        logo: 1,
+        logo: 2,
         typeId: false,
         scoreValue: -1,
         Increase: 3,
