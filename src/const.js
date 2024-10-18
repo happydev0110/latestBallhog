@@ -1546,6 +1546,38 @@ export const NHL_DS = [
         Increase: 1,
         rotation: false
     },
+    {//DS17
+        no: 'NHL-DS17',
+        teamId: false,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS17-1
+        no: 'NHL-DS17-1',
+        teamId: false,
+        typeId: 508,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS17-2
+        no: 'NHL-DS17-2',
+        teamId: false,
+        typeId: 508,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS17-3
+        no: 'NHL-DS17-3',
+        teamId: false,
+        typeId: 508,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
 ]
 
 export const SOCCER_DS = [
