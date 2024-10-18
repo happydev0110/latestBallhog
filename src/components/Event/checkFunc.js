@@ -222,6 +222,50 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         }
     }
 
+    // DS17 
+    if (dataTypeItem.no === 'NHL-DS17') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!prevPlayItem.type.id = 509) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-1 
+    if (dataTypeItem.no === 'NHL-DS17-1') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!prevPlayItem.type.id = 509) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-2 
+    if (dataTypeItem.no === 'NHL-DS17-2') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!prevPlayItem.type.id != 509 || !prevPlayItem.team.id != team2Id) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-3 
+    if (dataTypeItem.no === 'NHL-DS17-3') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!prevPlayItem.type.id != 509 || !prevPlayItem.team.id != team1Id) {
+                status = true;
+            }
+        }
+    }
+
     // NHL2-DS2
     if (dataTypeItem.no === 'NHL2-DS2') {
         if (PREV_NHL_DS2.teamId != team1Id) {
