@@ -280,6 +280,26 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
                 description = 'Blocked shot by '
             }
             break;
+        case 'NHL-DS17':
+            if (playItem.participants) {
+                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Penalty. '
+            }
+            break;
+        case 'NHL-DS17-1':
+            if (playItem.participants) {
+                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Penalty. '
+            }
+            break;
+        case 'NHL-DS17-2':
+            description = 'Stoppage. Penalties on both teams.'
+            break;
+        case 'NHL-DS17-3':
+            description = 'Stoppage. Penalties on both teams'
+            break;
 
         // NHL2 
         case 'NHL2-DS1':
