@@ -1442,15 +1442,7 @@ export const NHL_DS = [
         Increase: false,
         rotation: true
     },
-    {//DS2-1
-        no: 'NHL-DS2-1',
-        teamId: -1,
-        typeId: 516,
-        scoreValue: -1,
-        Increase: false,
-        rotation: false
-    },
-    {//DS3
+    {//DataSet3
         no: 'NHL-DS3',
         teamId: false,
         typeId: 506,
@@ -1458,7 +1450,7 @@ export const NHL_DS = [
         Increase: 3,
         rotation: false
     },
-    {//DS3-1
+    {//DataSet3
         no: 'NHL-DS3-1',
         teamId: false,
         typeId: 506,
@@ -1466,8 +1458,24 @@ export const NHL_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DS3-2
-        no: 'NHL-DS3-2',
+    {//DataSet5
+        no: 'NHL-DS5',
+        teamId: false,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DataSet5-1
+        no: 'NHL-DS5-1',
+        teamId: false,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DataSet6
+        no: 'NHL-DS6',
         teamId: true,
         typeId: 506,
         scoreValue: -1,
@@ -1520,38 +1528,6 @@ export const NHL_DS = [
         typeId: 508,
         scoreValue: -1,
         Increase: 1,
-        rotation: false
-    },
-    {//DS17
-        no: 'NHL-DS17',
-        teamId: false,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
-        rotation: true
-    },
-    {//DS17-1
-        no: 'NHL-DS17-1',
-        teamId: true,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
-        rotation: false
-    },
-    {//DS17-2
-        no: 'NHL-DS17-2',
-        teamId: false,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
-        rotation: true
-    },
-    {//DS17-3
-        no: 'NHL-DS17-3',
-        teamId: true,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
         rotation: false
     },
 ]
@@ -3318,7 +3294,7 @@ export const NCAAFB_DS = [
     },
     {//DS13
         no: 'NCAAFB-DS13',
-        logo: 1,
+        logo: 2,
         teamId: true,
         typeId: 7,
         scoreValue: -1,

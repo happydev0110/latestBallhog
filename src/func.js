@@ -202,9 +202,6 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
         case 'NHL-DS2':
             description = playItem.text + ' Ends Turn'
             break;
-        case 'NHL-DS2-1':
-            description = 'Under 30 Second Stoppage'
-            break;
         case 'NHL-DS3':
             if (playItem.participants) {
                 description = 'Shot by ' + playItem.participants[0].athlete.shortName
@@ -268,7 +265,6 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
                 description = 'Hit. '
             }
             break;
-        // NHL-DS16
         case 'NHL-DS16':
             if (playItem.participants) {
                 description = 'Shot blocked by ' + playItem.participants[0].athlete.shortName
@@ -276,26 +272,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
                 description = 'Shot blocked by '
             }
             break;
-        case 'NHL-DS17':
-            if (playItem.participants) {
-                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
-            } else {
-                description = 'Penalty. '
-            }
-            break;
-        case 'NHL-DS17-1':
-            if (playItem.participants) {
-                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
-            } else {
-                description = 'Penalty. '
-            }
-            break;
-        case 'NHL-DS17-2':
-            description = 'Stoppage. Penalties on both teams.'
-            break;
-        case 'NHL-DS17-3':
-            description = 'Stoppage. Penalties on both teams'
-            break;
+
         // NHL2 
         case 'NHL2-DS1':
             if (playItem.participants) {
