@@ -128,27 +128,24 @@ export const findNameToEnd = (text, startText = 'at ') => {
 }
 
 export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableIndex, prevPlayItem, team1Name, team2Name, boxScore) => {
-
     let description, sequenceTime, homeScore, awayScore, textIndex = tableIndex;
     let increaseMount = dataTypeItem.Increase;
 
-    if (dataTypeItem.Increase == -1) {
+    if (dataTypeItem.Increase == 'prev') {
         increaseMount = prevPlayItem.scoreValue
-    }
-
-    if (dataTypeItem.Increase) {
-        score[tableIndex] = score[tableIndex] + increaseMount;
     } else {
-        increaseMount = 0;
+        if (dataTypeItem.Increase) {
+            score[tableIndex] = score[tableIndex] + increaseMount;
+        } else {
+            increaseMount = 0;
+        }
     }
 
     if (dataTypeItem.rotation) {
         tableIndex = tableIndex + 1;
         tableIndex = tableIndex % 4;
-    } else {
-
     }
-
+    
     description = playItem.text;
 
     switch (dataTypeItem.no) {
@@ -197,7 +194,6 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
         case 'NCAA-DS15':
             description = 'Dunk!! End Turn'
             break;
-
         // NHL
         case 'NHL-DS1':
             description = playItem.participants
@@ -205,6 +201,9 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             break;
         case 'NHL-DS2':
             description = playItem.text + ' Ends Turn'
+            break;
+        case 'NHL-DS2-1':
+            description = 'Under 30 Second Stoppage'
             break;
         case 'NHL-DS3':
             if (playItem.participants) {
@@ -214,6 +213,13 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             }
             break;
         case 'NHL-DS3-1':
+            if (playItem.participants) {
+                description = 'Shot by ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Shot by '
+            }
+            break;
+        case 'NHL-DS3-2':
             if (playItem.participants) {
                 description = 'Shot by ' + playItem.participants[0].athlete.shortName
             } else {
@@ -265,12 +271,31 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
         // NHL-DS16
         case 'NHL-DS16':
             if (playItem.participants) {
-                description = 'Blocked shot by ' + playItem.participants[1].athlete.displayName
+                description = 'Shot blocked by ' + playItem.participants[0].athlete.shortName
             } else {
-                description = 'Blocked shot by '
+                description = 'Shot blocked by '
             }
             break;
-
+        case 'NHL-DS17':
+            if (playItem.participants) {
+                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Penalty. '
+            }
+            break;
+        case 'NHL-DS17-1':
+            if (playItem.participants) {
+                description = 'Penalty. ' + playItem.participants[0].athlete.shortName
+            } else {
+                description = 'Penalty. '
+            }
+            break;
+        case 'NHL-DS17-2':
+            description = 'Stoppage. Penalties on both teams.'
+            break;
+        case 'NHL-DS17-3':
+            description = 'Stoppage. Penalties on both teams'
+            break;
         // NHL2 
         case 'NHL2-DS1':
             if (playItem.participants) {
@@ -494,7 +519,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
 
         // NFL DS Description
         case 'NFL-DS1':
-            description = 'Kickoffffff';
+            description = 'Kickoff';
             break;
         case 'NFL-DS1-1':
             description = 'Fumble Recovery';
@@ -596,7 +621,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             description = 'Special Teams TouchDown!';
             break;
         case 'NFL-DS10-1-1':
-            description = 'Touchback';
+            description = 'Punt. Touchback';
             break;
         case 'NFL-DS10-2':
             description = 'Special Teams TouchDown!';
@@ -621,6 +646,12 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             break;
         case 'NFL-DS12-3':
             description = 'Turnover';
+            break;
+        case 'NFL-DS12-4':
+            description = 'Turnover';
+            break;
+        case 'NFL-DS12-5':
+            description = 'Def Forces Turnover!';
             break;
         case 'NFL-DS13':
             description = 'Sack by ' + findBetweenTwoStrings(playItem.text, " (", ")");
@@ -663,6 +694,9 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             break;
         case 'NFL-DS18':
             description = 'Field Goal Missed';
+            break;
+        case 'NFL-DS18-1':
+            description = 'Blocked Field Goal!';
             break;
         case 'NFL-DS19-1':
             description = 'Def Holds to Short FG!';

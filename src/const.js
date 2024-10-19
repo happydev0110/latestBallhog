@@ -1426,15 +1426,15 @@ export const NCAA_DS = [
 ]
 
 export const NHL_DS = [
-    {//DataSet1
+    {//DS1
         no: 'NHL-DS1',
         teamId: false,
         typeId: 502,
         scoreValue: -1,
-        Increase: 1,
+        Increase: 2,
         rotation: false
     },
-    {//DataSet2
+    {//DS2
         no: 'NHL-DS2',
         teamId: -1,
         typeId: 516,
@@ -1442,15 +1442,23 @@ export const NHL_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet3
+    {//DS2-1
+        no: 'NHL-DS2-1',
+        teamId: -1,
+        typeId: 516,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS3
         no: 'NHL-DS3',
         teamId: false,
         typeId: 506,
         scoreValue: -1,
-        Increase: 2,
+        Increase: 3,
         rotation: false
     },
-    {//DataSet3
+    {//DS3-1
         no: 'NHL-DS3-1',
         teamId: false,
         typeId: 506,
@@ -1458,39 +1466,23 @@ export const NHL_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet5
-        no: 'NHL-DS5',
-        teamId: false,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
-        rotation: true
-    },
-    {//DataSet5-1
-        no: 'NHL-DS5-1',
-        teamId: false,
-        typeId: 509,
-        scoreValue: -1,
-        Increase: false,
-        rotation: false
-    },
-    {//DataSet6
-        no: 'NHL-DS6',
+    {//DS3-2
+        no: 'NHL-DS3-2',
         teamId: true,
-        typeId: 509,
+        typeId: 506,
         scoreValue: -1,
-        Increase: false,
+        Increase: -1,
         rotation: false
     },
-    {//DataSet7
+    {//DS7
         no: 'NHL-DS7',
         teamId: false,
         typeId: 505,
         scoreValue: -1,
-        Increase: 4,
+        Increase: 5,
         rotation: true
     },
-    {//DataSet8
+    {//DS8
         no: 'NHL-DS8',
         teamId: true,
         typeId: 505,
@@ -1498,7 +1490,7 @@ export const NHL_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet9
+    {//DS9
         no: 'NHL-DS9',
         teamId: -1,
         typeId: 519,
@@ -1506,7 +1498,7 @@ export const NHL_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet10
+    {//DS10
         no: 'NHL-DS10',
         teamId: true,
         typeId: 502,
@@ -1514,7 +1506,7 @@ export const NHL_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet12
+    {//DS12
         no: 'NHL-DS12',
         teamId: -1,
         typeId: 518,
@@ -1522,12 +1514,44 @@ export const NHL_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet16
+    {//DS16
         no: 'NHL-DS16',
         teamId: false,
         typeId: 508,
         scoreValue: -1,
         Increase: 1,
+        rotation: false
+    },
+    {//DS17
+        no: 'NHL-DS17',
+        teamId: false,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS17-1
+        no: 'NHL-DS17-1',
+        teamId: true,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS17-2
+        no: 'NHL-DS17-2',
+        teamId: false,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS17-3
+        no: 'NHL-DS17-3',
+        teamId: true,
+        typeId: 509,
+        scoreValue: -1,
+        Increase: false,
         rotation: false
     },
 ]
@@ -2552,9 +2576,27 @@ export const NFL_DS = [
         Increase: false,
         rotation: true
     },
+    {//DS12-4
+        no: 'NFL-DS12-4',
+        teamId: -1,
+        typeId: 24,
+        logo: 1,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS12-5
+        no: 'NFL-DS12-5',
+        teamId: -1,
+        typeId: 24,
+        logo: 1,
+        scoreValue: -1,
+        Increase: 3,
+        rotation: true
+    },
     {//DS13
         no: 'NFL-DS13',
-        teamId: false,
+        teamId: true,
         logo: 1,
         typeId: 7,
         scoreValue: -1,
@@ -2672,6 +2714,15 @@ export const NFL_DS = [
         Increase: 2,
         rotation: true
     },
+    {//DS18-1
+        no: 'NFL-DS18-1',
+        teamId: -1,
+        logo: 1,
+        typeId: 18,
+        scoreValue: -1,
+        Increase: 3,
+        rotation: false
+    },
     {//DS19
         no: 'NFL-DS19',
         teamId: true,
@@ -2749,7 +2800,8 @@ export const NFL_DS = [
     {//DS22
         no: 'NFL-DS22',
         teamId: false,
-        typeId: 60,
+        matchList: [60, 18],
+        typeId: false,
         scoreValue: -1,
         Increase: false,
         rotation: true
@@ -2791,7 +2843,7 @@ export const NFL_DS = [
     },
     {//DS24-1
         no: 'NFL-DS24-1',
-        matchList: [52, 59, 60, 67, 68, 26, 29, 36, 74, 21, 75, 65, 2, 53],
+        matchList: [52, 59, 60, 67, 68, 26, 29, 36, 74, 21, 75, 65, 2, 53, 18],
         teamId: false,
         typeId: false,
         scoreValue: -1,
@@ -2807,6 +2859,16 @@ export const NFL_DS = [
         scoreValue: -1,
         Increase: 4,
         rotation: false
+    },
+    {//DS24-2-3
+        no: 'NFL-DS24-2-3',
+        matchList: [5, 24, 7, 3, 8, 9],
+        logo: 1,
+        teamId: true,
+        typeId: false,
+        scoreValue: -1,
+        Increase: 4,
+        rotation: true
     },
     {//DS25
         no: 'NFL-DS25',

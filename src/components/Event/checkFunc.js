@@ -153,6 +153,19 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             }
         }
     }
+    
+    // NHL-DS2-1
+    if (dataTypeItem.no === 'NHL-DS2-1') {
+        // PREV_NHL_DS2
+        if (currentPlayItem === undefined || currentPlayItem.text === undefined || currentPlayItem.type === undefined || PREV_NHL_DS2 === undefined || PREV_NHL_DS2.type === undefined || currentPlayItem.wallclock === undefined || PREV_NHL_DS2.wallclock === undefined) {
+            status = true;
+        } else {
+            if (currentPlayItem.text.toLowerCase().includes('timeout') || currentPlayItem.text.toLowerCase().includes('official') || currentPlayItem.text.toLowerCase().includes('challenge') || currentPlayItem.text.toLowerCase().includes('review') || currentPlayItem.text.toLowerCase().includes('objects') || getDuraton(PREV_NHL_DS2.wallclock, currentPlayItem.wallclock) >= 30000) {
+                status = true;
+            }
+        }
+    }
+    
 
     // NHL-DS4
     if (dataTypeItem.no === 'NHL-DS4') {
@@ -204,7 +217,51 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
             status = true;
         } else {
-            if (!currentPlayItem.text.includes('blocked')) {
+            if (!currentPlayItem.text.includes('blockedx')) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17 
+    if (dataTypeItem.no === 'NHL-DS17') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.type.id == 509 || prevPlayItem.clock.displayValue >= currentPlayItem.clock.displayValue) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-1 
+    if (dataTypeItem.no === 'NHL-DS17-1') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.type.id == 509) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-2 
+    if (dataTypeItem.no === 'NHL-DS17-2') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined || prevPlayItem.team === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.type.id != 509 || prevPlayItem.team.id != team2Id) {
+                status = true;
+            }
+        }
+    }
+
+    // DS17-3 
+    if (dataTypeItem.no === 'NHL-DS17-3') {
+        if (prevPlayItem === undefined || currentPlayItem.text === undefined || prevPlayItem.team === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.type.id != 509 || prevPlayItem.team.id != team1Id) {
                 status = true;
             }
         }
@@ -890,7 +947,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -901,7 +958,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined || currentPlayItem.pointAfterAttempt === undefined) {
             status = true;
         } else {
-            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -935,7 +992,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringPlay != true || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringPlay != true || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -946,7 +1003,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined) {
             status = true;
         } else {
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -1112,7 +1169,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         } else {
             // console.log(currentPlayItem.pointAfterAttempt.value,'pointAfterAttempt')
             let pointAfterAttempts = [1, 2]
-            if (currentPlayItem.scoringPlay != true || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (currentPlayItem.scoringPlay != true || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1124,7 +1181,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             // console.log(currentPlayItem.pointAfterAttempt.value,'pointAfterAttempt')
-            if (currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -1136,7 +1193,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (currentPlayItem.scoringPlay != true || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (currentPlayItem.scoringPlay != true || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1147,7 +1204,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.pointAfterAttempt === undefined) {
             status = true;
         } else {
-            if (currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (currentPlayItem.scoringPlay != true || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -1203,7 +1260,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1225,7 +1282,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.pointAfterAttempt === undefined) {
             status = true;
         } else {
-            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -1237,7 +1294,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1248,7 +1305,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.pointAfterAttempt === undefined) {
             status = true;
         } else {
-            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available')) {
                 status = true;
             }
         }
@@ -1344,6 +1401,28 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         }
     }
 
+    // NFL-DS12-4
+    if (dataTypeItem.no === 'NFL-DS12-4') {
+        if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined || currentPlayItem.start === undefined) {
+            status = true;
+        } else {
+            if (currentPlayItem.text.toLowerCase().includes('fumbles') || currentPlayItem.end.team.id != team2Id || currentPlayItem.start.id != team1Id) {
+                status = true;
+            }
+        }
+    }
+
+    // NFL-DS12-5
+    if (dataTypeItem.no === 'NFL-DS12-5') {
+        if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined || currentPlayItem.start === undefined || currentPlayItem.start.team === undefined) {
+            status = true;
+        } else {
+            if (currentPlayItem.text.toLowerCase().includes('fumbles') || currentPlayItem.start.team != team2Id || currentPlayItem.end.team.id != team1Id) {
+                status = true;
+            }
+        }
+    }
+
     // NFL-DS13
     if (dataTypeItem.no === 'NFL-DS13') {
         if (currentPlayItem.text === undefined) {
@@ -1372,7 +1451,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let startDowns = [1, 2, 3]
-            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || currentPlayItem.statYardage >= 0) {
+            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || (currentPlayItem.statYardage >= 0 && currentPlayItem.end.yardsToEndzone <= currentPlayItem.start.yardsToEndzone)) {
                 status = true;
             }
         }
@@ -1461,7 +1540,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1472,7 +1551,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined || currentPlayItem.pointAfterAttempt === undefined) {
             status = true;
         } else {
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || parseInt(currentPlayItem.pointAfterAttempt.value) != 0) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || parseInt(currentPlayItem.pointAfterAttempt.value) != 0 || currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not avaialble')) {
                 status = true;
             }
         }
@@ -1484,6 +1563,17 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             if (currentPlayItem.text.toLowerCase().includes('no play')) {
+                status = true;
+            }
+        }
+    }
+
+    // NFL-DS18-1
+    if (dataTypeItem.no === 'NFL-DS18-1') {
+        if (currentPlayItem.text === undefined || currentPlayItem.start === undefined || currentPlayItem.start.team === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined) {
+            status = true;
+        } else {
+            if (currentPlayItem.start.team.id != team2Id || currentPlayItem.end.team.id != team1Id) {
                 status = true;
             }
         }
@@ -1626,6 +1716,17 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         }
     }
 
+    // NFL-DS22
+    if (dataTypeItem.no === 'NFL-DS22') {
+        if (currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (currentPlayItem.text.toLowerCase().includes('no play') || dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1) {
+                status = true;
+            }
+        }
+    }
+
     // NFL-DS24-1-1
     if (dataTypeItem.no === 'NFL-DS24-1-1') {
         if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined) {
@@ -1678,7 +1779,19 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (currentPlayItem.text.toLowerCase().includes('no play') || dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.scoringPlay != true || currentPlayItem.start.down != 4 || currentPlayItem.end.down != 1 || currentPlayItem.end.team.id != team1Id || pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1) {
+            if (currentPlayItem.text.toLowerCase().includes('no play') || dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.scoringPlay != true || currentPlayItem.start.down != 4 || currentPlayItem.end.down != 1 || currentPlayItem.end.team.id != team1Id || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) == -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
+                status = true;
+            }
+        }
+    }
+
+    // NFL-DS24-2-3
+    if (dataTypeItem.no === 'NFL-DS24-2-3') {
+        if (currentPlayItem.text === undefined || currentPlayItem.end === undefined || currentPlayItem.end.team === undefined) {
+            status = true;
+        } else {
+            let pointAfterAttempts = [1, 2]
+            if (currentPlayItem.text.toLowerCase().includes('no play') || dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1 || currentPlayItem.scoringPlay != true || currentPlayItem.start.down != 4 || currentPlayItem.end.down != 1 || currentPlayItem.end.team.id != team1Id || (parseInt(currentPlayItem.pointAfterAttempt.value) != 0 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
@@ -1716,7 +1829,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         } else {
             var startDowns = [1, 2, 3, 4]
             var words = ['defensive too many', 'defensive offside', 'neutral zone', 'delay of game', 'running into']
-            if (!currentPlayItem.text.toLowerCase().includes('offsetting') || !currentPlayItem.text.toLowerCase().includes('no play') || !currentPlayItem.text.toLowerCase().includes('face mask') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.end.down != 1 || currentPlayItem.statYardage < currentPlayItem.start.distance) {
+            if (currentPlayItem.text.toLowerCase().includes('offsetting') || !currentPlayItem.text.toLowerCase().includes('no play') || !currentPlayItem.text.toLowerCase().includes('face mask') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.end.down != 1 || currentPlayItem.statYardage < currentPlayItem.start.distance) {
                 status = true;
             }
         }
@@ -1780,8 +1893,8 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             var startDowns = [1, 2, 3, 4]
-            var words = ['face mask', 'unnecessary roughness', 'illegal contact', 'illegal use of hands', 'roughing the kicker', 'roughing the passer', 'defensive holding', 'defensive pass interference', 'unsportsmanlike conduct', 'horse collar tackle']
-            if (currentPlayItem.text.toLowerCase().includes('enforced between downs') || !currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('offsetting') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team2Id) {
+            var words = ['face mask', 'unnecessary roughness', 'illegal contact', 'illegal use of hands', 'roughing the kicker', 'roughing the passer', 'defensive holding', 'defensive pass interference', 'unsportsmanlike conduct', 'horse collar tackle', 'leverage']
+            if (currentPlayItem.text.toLowerCase().includes('enforced between downs') || !currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('offsetting') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || parseInt(currentPlayItem.start.down) != 0 || currentPlayItem.end.team.id != team2Id) {
                 status = true;
             }
         }
@@ -1794,7 +1907,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         } else {
             var startDowns = [1, 2, 3, 4]
             var words = ['defensive too many', 'defensive offside', 'neutral zone', 'delay of game', 'running into']
-            if (currentPlayItem.text.toLowerCase().includes('offsetting') || !currentPlayItem.text.toLowerCase().includes('no play') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team1Id || currentPlayItem.statYardage < currentPlayItem.start.distance) {
+            if (currentPlayItem.text.toLowerCase().includes('offsetting') || !currentPlayItem.text.toLowerCase().includes('no play') || !checkWords(currentPlayItem.text.toLowerCase(), words) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team2Id || currentPlayItem.end.down != 1 || currentPlayItem.statYardage < currentPlayItem.start.distance) {
                 status = true;
             }
         }
