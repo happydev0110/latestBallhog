@@ -2067,7 +2067,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             var startDowns = [1, 2, 3, 4]
-            if ((!currentPlayItem.text.includes('1ST down') && !currentPlayItem.text.includes('1ST DOWN')) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team1Id || currentPlayItem.start.yardsToEndzone - currentPlayItem.end.yardsToEndzone >= 9) {
+            if ((!currentPlayItem.text.includes('1ST down') && !currentPlayItem.text.includes('1ST DOWN')) || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team1Id || currentPlayItem.start.yardsToEndzone - currentPlayItem.end.yardsToEndzone >= 10) {
                 status = true;
             }
         }
