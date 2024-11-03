@@ -1540,7 +1540,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let pointAfterAttempts = [1, 2]
-            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) !== -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) != -1 || currentPlayItem.scoringPlay != true || currentPlayItem.end.team.id != team1Id || currentPlayItem.scoringType.name != 'touchdown' || (pointAfterAttempts.indexOf(parseInt(currentPlayItem.pointAfterAttempt.value)) != -1 && !currentPlayItem.pointAfterAttempt.text.toLowerCase().includes('not available'))) {
                 status = true;
             }
         }
