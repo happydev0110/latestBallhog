@@ -2694,28 +2694,28 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
 
     // NBA3-DS4-1
     if (dataTypeItem.no === 'NBA3-DS4-1') {
-        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1)) {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1) {
             status = true;
         }
     }
 
     // NBA3-DS4-2
     if (dataTypeItem.no === 'NBA3-DS4-2') {
-        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0)) {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0) {
             status = true;
         }
     }
 
     // NBA3-DS5-1
     if (dataTypeItem.no === 'NBA3-DS5-1') {
-        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1)) {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1) {
             status = true;
         }
     }
 
     // NBA3-DS5-2
     if (dataTypeItem.no === 'NBA3-DS5-2') {
-        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0)) {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0) {
             status = true;
         }
     }
