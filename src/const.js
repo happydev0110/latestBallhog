@@ -9,6 +9,10 @@ export const URL = {
     MLB_TODAY_EVENT: 'https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard',
     NFL_TODAY_EVENT: 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard',
     NCAAFB_TODAY_EVENT: 'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard',
+
+    NBA3_TODAY_EVENT: 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard',
+    NCAABB2_TODAY_EVENT: 'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard',
+
     // https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary
     // EVENT_SCHEDULE: 'https://www.espn.com/nba/schedule',
 
@@ -24,7 +28,10 @@ export const URL = {
     // NCAA_SCORE_BOARD: "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard"
     MLB: 'https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/summary',
     NFL: 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary',
-    NCAAFB: 'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary'
+    NCAAFB: 'https://site.api.espn.com/apis/site/v2/sports/football/college-football/summary',
+
+    NBA3: "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/summary",
+    NCAABB2: 'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary'
 }
 
 export const SPORTS_CATEGORY = [
@@ -63,7 +70,15 @@ export const SPORTS_CATEGORY = [
     {
         label: 'NCAA FB',
         value: 'NCAAFB',
-    }
+    },
+    {
+        label: 'NBA3',
+        value: 'NBA3',
+    },
+    {
+        label: 'NCAA BB2',
+        value: 'NCAABB2',
+    },
 ]
 
 export const INTERVAL_TIME = [
@@ -136,7 +151,7 @@ export const TEAM_LIST = [
     scoreValue: (-1: 'No Compare', Int: 'Compare')
     scoringPlayStatus: (false: 'No compare',true: 'compare')
     scoringPlay: (true, false)
-    Increase: (false: 'No Increase', Int: 'Increase', -1: previous event scoreValue Increase)
+    Increase: (false: 'No Increase', Int: 'Increase', 'prev': previous event scoreValue Increase)
     roataion: (false: 'No Rotation', true: 'Rotation')
     logoReverse: (false: 'No Change', true: 'Next Logo')
 */
@@ -1557,7 +1572,7 @@ export const NHL_DS = [
 ]
 
 export const SOCCER_DS = [
-    {//DataSet1
+    {//DS1
         no: 'SOCCER-DS1',
         teamId: false,
         typeId: 122,
@@ -1565,7 +1580,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet2
+    {//DS2
         no: 'SOCCER-DS2',
         teamId: true,
         typeId: 122,
@@ -1573,7 +1588,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet3
+    {//DS3
         no: 'SOCCER-DS3',
         teamId: false,
         typeId: 68,
@@ -1581,7 +1596,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet4
+    {//DS4
         no: 'SOCCER-DS4',
         teamId: true,
         typeId: 68,
@@ -1589,7 +1604,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet7
+    {//DS7
         no: 'SOCCER-DS7',
         teamId: false,
         typeId: 66,
@@ -1597,7 +1612,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet8
+    {//DS8
         no: 'SOCCER-DS8',
         teamId: true,
         typeId: 66,
@@ -1605,7 +1620,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet9
+    {//DS9
         no: 'SOCCER-DS9',
         teamId: false,
         typeId: false,
@@ -1613,7 +1628,7 @@ export const SOCCER_DS = [
         Increase: 4,
         rotation: true
     },
-    {//DataSet10
+    {//DS10
         no: 'SOCCER-DS10',
         teamId: true,
         typeId: false,
@@ -1621,7 +1636,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet11
+    {//DS11
         no: 'SOCCER-DS11',
         teamId: -1,
         typeId: false,
@@ -1629,7 +1644,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet12
+    {//DS12
         no: 'SOCCER-DS12',
         teamId: -1,
         typeId: false,
@@ -1637,7 +1652,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet14
+    {//DS14
         no: 'SOCCER-DS14',
         teamId: -1,
         typeId: false,
@@ -1646,7 +1661,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet15
+    {//DS15
         no: 'SOCCER-DS15',
         teamId: -1,
         typeId: false,
@@ -1655,7 +1670,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet16
+    {//DS16
         no: 'SOCCER-DS16',
         teamId: false,
         typeId: 136,
@@ -1664,7 +1679,7 @@ export const SOCCER_DS = [
         rotation: false
     },
     // Not complete 
-    {//DataSet17
+    {//DS17
         no: 'SOCCER-DS17',
         teamId: -1,
         typeId: false,
@@ -1673,7 +1688,7 @@ export const SOCCER_DS = [
         rotation: false
     },
     // Not complete
-    {//DataSet21
+    {//DS21
         no: 'SOCCER-DS21',
         teamId: false,
         typeId: 117,
@@ -1681,7 +1696,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet22
+    {//DS22
         no: 'SOCCER-DS22',
         teamId: false,
         typeId: 114,
@@ -1689,7 +1704,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet23
+    {//DS23
         no: 'SOCCER-DS23',
         teamId: true,
         typeId: 114,
@@ -1697,7 +1712,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet24
+    {//DS24
         no: 'SOCCER-DS24',
         teamId: false,
         typeId: false,
@@ -1705,7 +1720,7 @@ export const SOCCER_DS = [
         Increase: 4,
         rotation: true
     },
-    {//DataSet25
+    {//DS25
         no: 'SOCCER-DS25',
         teamId: true,
         typeId: false,
@@ -1713,7 +1728,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet27-1
+    {//DS27-1
         no: 'SOCCER-DS27-1',
         teamId: -1,
         typeId: false,
@@ -1721,7 +1736,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet27-2
+    {//DS27-2
         no: 'SOCCER-DS27-2',
         teamId: -1,
         typeId: false,
@@ -1729,14 +1744,14 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-1
+    {//DS28-1
         no: 'SOCCER-DS28-1',
         teamId: -1,
         typeId: false,
         scoreValue: -1,
         Increase: false,
         rotation: false
-    }, {//DataSet28-2
+    }, {//DS28-2
         no: 'SOCCER-DS28-2',
         teamId: -1,
         typeId: false,
@@ -1744,7 +1759,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-3
+    {//DS28-3
         no: 'SOCCER-DS28-3',
         teamId: -1,
         typeId: false,
@@ -1752,7 +1767,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-4
+    {//DS28-4
         no: 'SOCCER-DS28-4',
         teamId: -1,
         typeId: false,
@@ -1760,7 +1775,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet29
+    {//DS29
         no: 'SOCCER-DS29',
         teamId: true,
         typeId: 135,
@@ -1771,7 +1786,7 @@ export const SOCCER_DS = [
 ]
 
 export const NHL2_DS = [
-    {//DataSet1
+    {//DS1
         no: 'NHL2-DS1',
         teamId: false,
         typeId: 502,
@@ -1779,7 +1794,7 @@ export const NHL2_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet1-2
+    {//DS1-2
         no: 'NHL2-DS1-2',
         teamId: true,
         typeId: 502,
@@ -3564,6 +3579,305 @@ export const NCAAFB_DS = [
     },
 ]
 
+export const NBA3_DS = [
+    {//DS1-1
+        no: 'NBA3-DS1-1',
+        teamId: false,
+        typeId: false,
+        scoreValue: 3,
+        Increase: 3,
+        rotation: false
+    },
+    {//DS1-2
+        no: 'NBA3-DS1-2',
+        teamId: false,
+        typeId: false,
+        scoreValue: 0,
+        Increase: -1,
+        rotation: false
+    },
+    {//DS1-3
+        no: 'NBA3-DS1-3',
+        teamId: true,
+        typeId: false,
+        scoreValue: 0,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS2-1
+        no: 'NBA3-DS2-1',
+        teamId: false,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS2-2
+        no: 'NBA3-DS2-2',
+        teamId: true,
+        typeId: false,
+        scoreValue: -1,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS3
+        no: 'NBA3-DS3',
+        noMatchList: [96, 116, 115, 150, 118, 138, 149],
+        teamId: false,
+        typeId: false,
+        scoreValue: 2,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS3-1
+        no: 'NBA3-DS3-1',
+        teamId: true,
+        typeId: false,
+        scoreValue: 2,
+        Increase: false,
+        rotation: true
+    },
+    {//DS4-1
+        no: 'NBA3-DS4-1',
+        teamId: false,
+        typeId: false,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS4-2
+        no: 'NBA3-DS4-2',
+        teamId: false,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS5-1
+        no: 'NBA3-DS5-1',
+        logo: 2,
+        teamId: true,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS5-2
+        no: 'NBA3-DS5-2',
+        teamId: true,
+        typeId: false,
+        scoreValue: -1,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS6-1
+        no: 'NBA3-DS6-1',
+        matchList: [412, 401, 16],
+        teamId: -1,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS7-1
+        no: 'NBA3-DS7-1',
+        teamId: -1,
+        typeId: 615,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS8-1
+        no: 'NBA3-DS8-1',
+        teamId: true,
+        typeId: false,
+        logoReverse: true,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS8-2
+        no: 'NBA3-DS8-2',
+        teamId: false,
+        typeId: false,
+        logoReverse: true,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS9-1
+        no: 'NBA3-DS9-1',
+        noMatchList: [62, 63, 84],
+        teamId: false,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+]
+
+export const NCAABB2_DS = [
+    {//DS1
+        no: 'NCAABB2-DS1',
+        teamId: false,
+        typeId: false,
+        scoreValue: 3,
+        scoringPlayStatus: true,
+        scoringPlay: true,
+        Increase: 3,
+        rotation: false
+    },
+    {//DS1-1
+        no: 'NCAABB2-DS1-1',
+        teamId: false,
+        typeId: false,
+        scoreValue: -1,
+        Increase: -1,
+        rotation: false
+    },
+    {//DS2
+        no: 'NCAABB2-DS2',
+        teamId: true,
+        typeId: false,
+        scoreValue: 3,
+        scoringPlayStatus: true,
+        scoringPlay: false,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS3
+        no: 'NCAABB2-DS3',
+        teamId: false,
+        typeId: 574,
+        scoreValue: -1,
+        scoringPlayStatus: true,
+        scoringPlay: true,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS4
+        no: 'NCAABB2-DS4',
+        teamId: false,
+        typeId: 540,
+        scoreValue: -1,
+        scoringPlayStatus: true,
+        scoringPlay: true,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS5
+        no: 'NCAABB2-DS5',
+        teamId: false,
+        typeId: 540,
+        scoreValue: -1,
+        scoringPlayStatus: true,
+        scoringPlay: false,
+        Increase: false,
+        rotation: true
+    },
+    {//DS6
+        no: 'NCAABB2-DS6',
+        teamId: true,
+        typeId: 540,
+        scoreValue: -1,
+        scoringPlayStatus: true,
+        scoringPlay: true,
+        Increase: false,
+        rotation: false
+    },
+    {//DS7
+        no: 'NCAABB2-DS7',
+        teamId: true,
+        typeId: 540,
+        scoreValue: -1,
+        scoringPlayStatus: true,
+        scoringPlay: false,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS9
+        no: 'NCAABB2-DS9',
+        teamId: true,
+        typeId: 574,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS10
+        no: 'NCAABB2-DS10',
+        teamId: false,
+        typeId: 618,
+        scoreValue: -1,
+        Increase: 1,
+        rotation: false
+    },
+    {//DS11
+        no: 'NCAABB2-DS11',
+        teamId: true,
+        typeId: 618,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS12
+        no: 'NCAABB2-DS12',
+        teamId: false,
+        typeId: 598,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS13
+        no: 'NCAABB2-DS13',
+        teamId: false,
+        typeId: 519,
+        scoreValue: -1,
+        Increase: false,
+        rotation: true
+    },
+    {//DS14
+        no: 'NCAABB2-DS14',
+        teamId: true,
+        typeId: 519,
+        scoreValue: -1,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS15
+        no: 'NCAABB2-DS15',
+        teamId: true,
+        typeId: 519,
+        scoreValue: -1,
+        Increase: 2,
+        rotation: false
+    },
+    {//DS16
+        no: 'NCAABB2-DS16',
+        teamId: false,
+        typeId: 521,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS17
+        no: 'NCAABB2-DS17',
+        teamId: true,
+        typeId: 521,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+    {//DS18
+        no: 'NCAABB2-DS18',
+        matchList: [578, 579, 580],
+        teamId: true,
+        typeId: false,
+        scoreValue: -1,
+        Increase: false,
+        rotation: false
+    },
+]
+
 export const DATASET_TYPE_CATEGORY = {
     NBA: NBA_DS,
     NBA2: NBA2_DS,
@@ -3573,5 +3887,8 @@ export const DATASET_TYPE_CATEGORY = {
     NHL2: NHL2_DS,
     MLB: MLB_DS,
     NFL: NFL_DS,
-    NCAAFB: NCAAFB_DS
+    NCAAFB: NCAAFB_DS,
+
+    NBA3: NBA3_DS,
+    NCAABB2: NCAABB2_DS,
 }
