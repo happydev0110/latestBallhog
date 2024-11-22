@@ -158,6 +158,8 @@ function EventComponent() {
             let selectedDS = false;
             let currentPlayItem = dsList[i];
             let prevPlayItem = dsList[i - 1];
+            let nextPlayItem = null;
+            if (i < dsList.length - 1) nextPlayItem = dsList[i + 1]
 
             /* Special DS (NHL) */
             if (sportCategory === 'NHL') {
@@ -188,7 +190,7 @@ function EventComponent() {
                         continue;
                     }
                 } else {
-                    if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
+                    if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, nextPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
                         continue;
                     } else {
                         if (sportCategory === 'NHL') {
@@ -528,6 +530,10 @@ function EventComponent() {
                         var currentPlayItem = eventList[i];
                         var prevEventItem = eventList[i - 1];
                         var prevPlayItem = eventList[i].prevPlayItem;
+
+                        var nextPlayItem = null;
+                        if (i < eventList.length - 1) nextPlayItem = eventList[i + 1];
+
                         PREV_NHL_DS2 = eventList[i].PREV_NHL_DS2;
                         PREV_NHL_DS5 = eventList[i].PREV_NHL_DS5;
 
@@ -581,7 +587,7 @@ function EventComponent() {
                                     matchTeamId = team2Id;
                                 }
 
-                                if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
+                                if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, nextPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
                                     continue;
                                 } else {
                                     if (sportCategory === 'NHL') {
@@ -1051,6 +1057,8 @@ function EventComponent() {
                         let selectedDS = false;
                         let currentPlayItem = resList.plays[i];
                         let prevPlayItem = resList.plays[i - 1];
+                        let nextPlayItem = null;
+                        if (i < resList.plays.length - 1) nextPlayItem = resList.plays[i + 1];
 
                         /* Special DS (NHL) */
                         if (sportCategory === 'NHL') {
@@ -1088,7 +1096,7 @@ function EventComponent() {
                                 matchTeamId = team2Id;
                             }
 
-                            if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
+                            if (checkFunc(sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, nextPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5)) {
                                 continue;
                             } else {
                                 if (sportCategory === 'NHL') {
