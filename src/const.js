@@ -151,7 +151,7 @@ export const TEAM_LIST = [
     scoreValue: (-1: 'No Compare', Int: 'Compare')
     scoringPlayStatus: (false: 'No compare',true: 'compare')
     scoringPlay: (true, false)
-    Increase: (false: 'No Increase', Int: 'Increase', -1: previous event scoreValue Increase)
+    Increase: (false: 'No Increase', Int: 'Increase', 'prev': previous event scoreValue Increase)
     roataion: (false: 'No Rotation', true: 'Rotation')
     logoReverse: (false: 'No Change', true: 'Next Logo')
 */
@@ -1572,7 +1572,7 @@ export const NHL_DS = [
 ]
 
 export const SOCCER_DS = [
-    {//DataSet1
+    {//DS1
         no: 'SOCCER-DS1',
         teamId: false,
         typeId: 122,
@@ -1580,7 +1580,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet2
+    {//DS2
         no: 'SOCCER-DS2',
         teamId: true,
         typeId: 122,
@@ -1588,7 +1588,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet3
+    {//DS3
         no: 'SOCCER-DS3',
         teamId: false,
         typeId: 68,
@@ -1596,7 +1596,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet4
+    {//DS4
         no: 'SOCCER-DS4',
         teamId: true,
         typeId: 68,
@@ -1604,7 +1604,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet7
+    {//DS7
         no: 'SOCCER-DS7',
         teamId: false,
         typeId: 66,
@@ -1612,7 +1612,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet8
+    {//DS8
         no: 'SOCCER-DS8',
         teamId: true,
         typeId: 66,
@@ -1620,7 +1620,7 @@ export const SOCCER_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet9
+    {//DS9
         no: 'SOCCER-DS9',
         teamId: false,
         typeId: false,
@@ -1628,7 +1628,7 @@ export const SOCCER_DS = [
         Increase: 4,
         rotation: true
     },
-    {//DataSet10
+    {//DS10
         no: 'SOCCER-DS10',
         teamId: true,
         typeId: false,
@@ -1636,7 +1636,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet11
+    {//DS11
         no: 'SOCCER-DS11',
         teamId: -1,
         typeId: false,
@@ -1644,7 +1644,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet12
+    {//DS12
         no: 'SOCCER-DS12',
         teamId: -1,
         typeId: false,
@@ -1652,7 +1652,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet14
+    {//DS14
         no: 'SOCCER-DS14',
         teamId: -1,
         typeId: false,
@@ -1661,7 +1661,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet15
+    {//DS15
         no: 'SOCCER-DS15',
         teamId: -1,
         typeId: false,
@@ -1670,7 +1670,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet16
+    {//DS16
         no: 'SOCCER-DS16',
         teamId: false,
         typeId: 136,
@@ -1679,7 +1679,7 @@ export const SOCCER_DS = [
         rotation: false
     },
     // Not complete 
-    {//DataSet17
+    {//DS17
         no: 'SOCCER-DS17',
         teamId: -1,
         typeId: false,
@@ -1688,7 +1688,7 @@ export const SOCCER_DS = [
         rotation: false
     },
     // Not complete
-    {//DataSet21
+    {//DS21
         no: 'SOCCER-DS21',
         teamId: false,
         typeId: 117,
@@ -1696,7 +1696,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet22
+    {//DS22
         no: 'SOCCER-DS22',
         teamId: false,
         typeId: 114,
@@ -1704,7 +1704,7 @@ export const SOCCER_DS = [
         Increase: 3,
         rotation: true
     },
-    {//DataSet23
+    {//DS23
         no: 'SOCCER-DS23',
         teamId: true,
         typeId: 114,
@@ -1712,7 +1712,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet24
+    {//DS24
         no: 'SOCCER-DS24',
         teamId: false,
         typeId: false,
@@ -1720,7 +1720,7 @@ export const SOCCER_DS = [
         Increase: 4,
         rotation: true
     },
-    {//DataSet25
+    {//DS25
         no: 'SOCCER-DS25',
         teamId: true,
         typeId: false,
@@ -1728,7 +1728,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: true
     },
-    {//DataSet27-1
+    {//DS27-1
         no: 'SOCCER-DS27-1',
         teamId: -1,
         typeId: false,
@@ -1736,7 +1736,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet27-2
+    {//DS27-2
         no: 'SOCCER-DS27-2',
         teamId: -1,
         typeId: false,
@@ -1744,14 +1744,14 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-1
+    {//DS28-1
         no: 'SOCCER-DS28-1',
         teamId: -1,
         typeId: false,
         scoreValue: -1,
         Increase: false,
         rotation: false
-    }, {//DataSet28-2
+    }, {//DS28-2
         no: 'SOCCER-DS28-2',
         teamId: -1,
         typeId: false,
@@ -1759,7 +1759,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-3
+    {//DS28-3
         no: 'SOCCER-DS28-3',
         teamId: -1,
         typeId: false,
@@ -1767,7 +1767,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet28-4
+    {//DS28-4
         no: 'SOCCER-DS28-4',
         teamId: -1,
         typeId: false,
@@ -1775,7 +1775,7 @@ export const SOCCER_DS = [
         Increase: false,
         rotation: false
     },
-    {//DataSet29
+    {//DS29
         no: 'SOCCER-DS29',
         teamId: true,
         typeId: 135,
@@ -1786,7 +1786,7 @@ export const SOCCER_DS = [
 ]
 
 export const NHL2_DS = [
-    {//DataSet1
+    {//DS1
         no: 'NHL2-DS1',
         teamId: false,
         typeId: 502,
@@ -1794,7 +1794,7 @@ export const NHL2_DS = [
         Increase: 1,
         rotation: false
     },
-    {//DataSet1-2
+    {//DS1-2
         no: 'NHL2-DS1-2',
         teamId: true,
         typeId: 502,

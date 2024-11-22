@@ -1098,15 +1098,16 @@ export const handleSoccerScore = (playItem, dataTypeItem, score, tableIndex, pre
     let description, sequenceTime, homeScore, awayScore, textIndex = tableIndex;
     let increaseMount = dataTypeItem.Increase;
 
-    if (dataTypeItem.Increase == -1) {
+    if (dataTypeItem.Increase == 'prev') {
         increaseMount = prevPlayItem.scoreValue
+    } else {
+        if (dataTypeItem.Increase) {
+            score[tableIndex] = score[tableIndex] + increaseMount;
+        } else {
+            increaseMount = 0;
+        }
     }
 
-    if (dataTypeItem.Increase) {
-        score[tableIndex] = score[tableIndex] + increaseMount;
-    } else {
-        increaseMount = 0;
-    }
 
     if (dataTypeItem.rotation) {
         tableIndex = tableIndex + 1;
