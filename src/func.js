@@ -127,6 +127,17 @@ export const findNameToEnd = (text, startText = 'at ') => {
     return text.substring(startIndex, endIndex);
 }
 
+export const getFirstTwoWords = (sentence) => {
+    // Split the sentence into words
+    const words = sentence.split(" ");
+
+    // Get the first two words
+    const firstTwoWords = words.slice(0, 2);
+
+    // Join them back into a string
+    return firstTwoWords.join(" ");
+}
+
 export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableIndex, prevPlayItem, team1Name, team2Name, boxScore) => {
     let description, sequenceTime, homeScore, awayScore, textIndex = tableIndex;
     let increaseMount = dataTypeItem.Increase;
@@ -145,7 +156,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
         tableIndex = tableIndex + 1;
         tableIndex = tableIndex % 4;
     }
-    
+
     description = playItem.text;
 
     switch (dataTypeItem.no) {
@@ -993,6 +1004,51 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             break;
         case 'NCAAFB-DS31':
             description = 'End of Quater';
+            break;
+
+        //NBA3
+        case 'NBA3-DS1-1':
+            description = '3pt Make. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS1-2':
+            description = '3pt Miss. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS1-3':
+            description = '3pt Miss. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS3':
+            description = playItem.type.text
+            break;
+        case 'NBA3-DS3-1':
+            description = playItem.type.text
+            break;
+        case 'NBA3-DS4-1':
+            description = 'Made FT. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS4-2':
+            description = 'Missed FT. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS5-1':
+            description = 'Made FT. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS5-2':
+            description = 'Missed FT. ' + getAthleteName(boxScore, playItem.participants[0].athlete.id)
+            break;
+        case 'NBA3-DS7-1':
+            description = playItem.type.text
+            break;
+        //NCAABB2
+        case 'NCAABB2-DS1':
+            description = '3pt make. ' + getFirstTwoWords(playItem.text)
+            break;
+        case 'NCAABB2-DS1-1':
+            description = '3pt make. ' + getFirstTwoWords(playItem.text)
+            break;
+        case 'NCAABB2-DS2':
+            description = '3pt make. ' + getFirstTwoWords(playItem.text)
+            break;
+        case 'NCAABB2-DS3':
+            description = 'Dunk!!!'
             break;
         default:
             break;

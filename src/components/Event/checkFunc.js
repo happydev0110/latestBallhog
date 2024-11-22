@@ -18,7 +18,7 @@ export const checkWords = (text, words) => {
     false: yes          (continue)
     true: No Check      (no continue)
 */
-export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5, OffensivePlays_NFL) => {
+export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlayItem, nextPlayItem, team1Id, team2Id, matchTeamId, PREV_NHL_DS2, PREV_NHL_DS5, OffensivePlays_NFL) => {
     var status = false;
 
     // teamId
@@ -153,7 +153,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             }
         }
     }
-    
+
     // NHL-DS2-1
     if (dataTypeItem.no === 'NHL-DS2-1') {
         // PREV_NHL_DS2
@@ -165,7 +165,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             }
         }
     }
-    
+
 
     // NHL-DS4
     if (dataTypeItem.no === 'NHL-DS4') {
@@ -1451,7 +1451,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let startDowns = [1, 2, 3]
-            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || (currentPlayItem.statYardage >= 0 && currentPlayItem.end.yardsToEndzone <= currentPlayItem.start.yardsToEndzone)) {
+            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || currentPlayItem.text.toLowerCase().includes('timeout') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || (currentPlayItem.statYardage >= 0 && currentPlayItem.end.yardsToEndzone <= currentPlayItem.start.yardsToEndzone)) {
                 status = true;
             }
         }
@@ -2636,6 +2636,171 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         } else {
             var startDowns = [1, 2, 3, 4]
             if (currentPlayItem.scoringPlay != false || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.end.team.id != team1Id) {
+                status = true;
+            }
+        }
+    }
+
+    //NBA3    
+    // NBA3-DS1-2
+    if (dataTypeItem.no === 'NBA3-DS1-2') {
+        if (!currentPlayItem.text.includes('three point')) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS1-3
+    if (dataTypeItem.no === 'NBA3-DS1-3') {
+        if (!currentPlayItem.text.includes('three point')) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS2-1
+    if (dataTypeItem.no === 'NBA3-DS2-1') {
+        if (!currentPlayItem.type.text.includes('Foul') || currentPlayItem.type.text.includes('Turnover')) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS2-2
+    if (dataTypeItem.no === 'NBA3-DS2-2') {
+        if (!currentPlayItem.type.text.includes('Foul') || currentPlayItem.type.text.includes('Turnover')) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS3
+    if (dataTypeItem.no === 'NBA3-DS3') {
+        if (currentPlayItem.type === undefined || prevPlayItem === undefined || prevPlayItem.type === undefined) {
+            status = true
+        } else {
+            if (!currentPlayItem.type.text.includes('Dunk Shot') || dataTypeItem.noMatchList.indexOf(parseInt(prevPlayItem.type.id)) !== -1) {
+                status = true;
+            }
+        }
+    }
+
+    // NBA3-DS3-1
+    if (dataTypeItem.no === 'NBA3-DS3-1') {
+        if (currentPlayItem.type === undefined) {
+            status = true;
+        } else {
+            if (!currentPlayItem.type.text.includes('Dunk Shot')) {
+                status = true;
+            }
+        }
+    }
+
+    // NBA3-DS4-1
+    if (dataTypeItem.no === 'NBA3-DS4-1') {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS4-2
+    if (dataTypeItem.no === 'NBA3-DS4-2') {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS5-1
+    if (dataTypeItem.no === 'NBA3-DS5-1') {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 1) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS5-2
+    if (dataTypeItem.no === 'NBA3-DS5-2') {
+        if (!currentPlayItem.text.includes('free throw') || currentPlayItem.scoreValue != 0) {
+            status = true;
+        }
+    }
+
+    // NBA3-DS6-1
+    if (dataTypeItem.no === 'NBA3-DS6-1') {
+        if (currentPlayItem.type === undefined) {
+            status = true
+        } else {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1) {
+                status = true;
+            }
+        }
+    }
+
+    // NBA3-DS8-1
+    if (dataTypeItem.no === 'NBA3-DS8-1') {
+        if (currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!currentPlayItem.text.includes('blocks')) {
+                status = true;
+            }
+        }
+    }
+
+    // NBA3-DS8-2
+    if (dataTypeItem.no === 'NBA3-DS8-2') {
+        if (currentPlayItem.text === undefined) {
+            status = true;
+        } else {
+            if (!currentPlayItem.text.includes('blocks')) {
+                status = true;
+            }
+        }
+    }
+
+    // NBA3-DS9-1
+    if (dataTypeItem.no === 'NBA3-DS9-1') {
+        if (currentPlayItem.type === undefined) {
+            status = true
+        } else {
+            if ((!currentPlayItem.type.text.includes('Turnover') && currentPlayItem.type.id != 64) || dataTypeItem.noMatchList.indexOf(parseInt(currentPlayItem.type.id)) !== -1) {
+                status = true;
+            }
+        }
+    }
+
+    //NCAABB2
+    // NCAABB2-DS1-1
+    if (dataTypeItem.no === 'NCAABB2-DS1-1') {
+        if (!currentPlayItem.text.includes('missed Three Point')) {
+            status = true;
+        }
+    }
+
+    // NCAABB2-DS12
+    if (dataTypeItem.no === 'NCAABB2-DS12') {
+        if (prevPlayItem === undefined || prevPlayItem.type === undefined || prevPlayItem.clock === undefined || nextPlayItem === null || nextPlayItem.type == undefined || nextPlayItem.clock === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.type.id == 519 || prevPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == prevPlayItem.clock.displayValue || nextPlayItem.type.id == 519 || nextPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == nextPlayItem.clock.displayValue) status = true;
+        }
+    }
+
+    // NCAABB2-DS14
+    if (dataTypeItem.no === 'NCAABB2-DS14') {
+        if (prevPlayItem === undefined || prevPlayItem.scoreValue === undefined || prevPlayItem.scoreValue != 0 || prevPlayItem.clock.displayValue == currentPlayItem.clock.displayValue) status = true;
+    }
+
+    // NCAABB2-DS15
+    if (dataTypeItem.no === 'NCAABB2-DS15') {
+        if (prevPlayItem === undefined) {
+            status = true;
+        } else {
+            if (prevPlayItem.clock.displayValue != currentPlayItem.clock.displayValue || prevPlayItem.scoringPlay === undefined || prevPlayItem.scoringPlay === true) status = true;
+        }
+    }
+
+    // NCAABB2-DS18
+    if (dataTypeItem.no === 'NCAABB2-DS18') {
+        if (currentPlayItem.type === undefined) {
+            status = true
+        } else {
+            if (dataTypeItem.matchList.indexOf(parseInt(currentPlayItem.type.id)) == -1) {
                 status = true;
             }
         }
