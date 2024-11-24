@@ -2612,7 +2612,7 @@ export const NFL_DS = [
     {//DS13
         no: 'NFL-DS13',
         teamId: true,
-        logo: 2,
+        logo: 1,
         typeId: 7,
         scoreValue: -1,
         Increase: 1,
@@ -2629,7 +2629,7 @@ export const NFL_DS = [
     {//DS13-2
         no: 'NFL-DS13-2',
         matchList: [5, 24, 9],
-        logo: 2,
+        logo: 1,
         teamId: true,
         typeId: false,
         scoreValue: -1,
