@@ -884,7 +884,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             description = 'Touchdown! ' + findNameFromText(playItem.text); //add name from DS text
             break;
         case 'NCAAFB-DS7-1':
-            description = 'Touchdown! ' + findBetweenTwoStrings(playItem.text, " to ", " ", true, " "); //add name from DS text
+            description = 'Touchdown! ' + findNameFromText(playItem.text, true, " ");
             break;
         case 'NCAAFB-DS7-2':
             description = 'Touchdown! Extra Point No Good.'; //add name from DS text
