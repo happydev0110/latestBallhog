@@ -2777,7 +2777,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
         if (prevPlayItem === undefined || prevPlayItem.type === undefined || prevPlayItem.clock === undefined || nextPlayItem === null || nextPlayItem.type == undefined || nextPlayItem.clock === undefined) {
             status = true;
         } else {
-            if (prevPlayItem.type.id == 519 || prevPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == prevPlayItem.clock.displayValue || nextPlayItem.type.id == 519 || nextPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == nextPlayItem.clock.displayValue && currentPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == nextPlayItem.clock.displayValue && currentPlayItem.type.id == 519) status = true;
+            if (currentPlayItem.clock.displayValue == prevPlayItem.clock.displayValue && prevPlayItem.type.id == 519 || currentPlayItem.clock.displayValue == prevPlayItem.clock.displayValue && currentPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == nextPlayItem.clock.displayValue && currentPlayItem.type.id == 607 || currentPlayItem.clock.displayValue == nextPlayItem.clock.displayValue && currentPlayItem.type.id == 519) status = true;
         }
     }
 
