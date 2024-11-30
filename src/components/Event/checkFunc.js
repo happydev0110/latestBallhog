@@ -1451,7 +1451,7 @@ export const checkFunc = (sportCategory, dataTypeItem, currentPlayItem, prevPlay
             status = true;
         } else {
             let startDowns = [1, 2, 3]
-            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || currentPlayItem.text.toLowerCase().includes('timeout') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || (currentPlayItem.statYardage >= 0 && currentPlayItem.end.yardsToEndzone <= currentPlayItem.start.yardsToEndzone)) {
+            if (currentPlayItem.text.toLowerCase().includes('no play') || currentPlayItem.text.toLowerCase().includes('sacked') || currentPlayItem.text.toLowerCase().includes('kneels') || currentPlayItem.text.toLowerCase().includes('enforced between') || currentPlayItem.text.toLowerCase().includes('timeout') || startDowns.indexOf(parseInt(currentPlayItem.start.down)) == -1 || currentPlayItem.scoringPlay != false || currentPlayItem.end.team.id != team2Id || (currentPlayItem.statYardage >= 0) {
                 status = true;
             }
         }
