@@ -3334,7 +3334,7 @@ export const NCAAFB_DS = [
     {//DS13
         no: 'NCAAFB-DS13',
         logo: 1,
-        teamId: true,
+        teamId: false,
         typeId: 7,
         scoreValue: -1,
         Increase: 1,
@@ -3344,7 +3344,7 @@ export const NCAAFB_DS = [
         no: 'NCAAFB-DS13-1',
         matchList: [5, 24, 9],
         logo: 1,
-        teamId: true,
+        teamId: false,
         typeId: false,
         scoreValue: -1,
         Increase: 1,
