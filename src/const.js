@@ -2656,8 +2656,8 @@ export const NFL_DS = [
     },
     {//DS14-1
         no: 'NFL-DS14-1',
-        teamId: false,
-        logo: 1,
+        teamId: true,
+        logo: 2,
         typeId: 52,
         scoreValue: -1,
         Increase: 3,
