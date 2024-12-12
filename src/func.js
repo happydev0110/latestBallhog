@@ -567,7 +567,7 @@ export const handleScore = (sportCategory, playItem, dataTypeItem, score, tableI
             break;
         case 'NFL-DS2-2':
             var possessionText_Num = playItem.end.possessionText.match(/\d+/)[0];
-            description = '1st Down Run!' + findNameFromText(playItem.text) + '(' + possessionText_Num + ')'; //add name from DS text
+            description = '1st Down Run!' + findNameFromText(playItem.text) + ' and (' + possessionText_Num + ')'; //add name from DS text
             break;
         case 'NFL-DS3-1':
             description = 'First Down Pass + Bonus! ' + findBetweenTwoStrings(playItem.text, " to ", " "); //add name from DS text
