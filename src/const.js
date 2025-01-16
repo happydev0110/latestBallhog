@@ -3642,7 +3642,7 @@ export const NBA3_DS = [
         teamId: false,
         typeId: false,
         scoreValue: -1,
-        Increase: 1,
+        Increase: 6,
         rotation: false
     },
     {//DS4-2
